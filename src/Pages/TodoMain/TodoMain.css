@@ -1,0 +1,7 @@
+.react-datepicker__navigation-icon--previous,
+.react-datepicker__navigation-icon--next {
+  top: 5px;
+}
+input {
+  outline: none;
+}
