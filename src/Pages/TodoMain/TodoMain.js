@@ -21,7 +21,7 @@ const TodoMain = () => {
     const description = form.description.value;
     // console.log(title, startDate, description);
     axios
-      .post("https://hellwet-server.vercel.app/addtodo", {
+      .post("http://localhost:5000/addtodo", {
         title,
         description,
         dueDate: startDate,
@@ -40,7 +40,7 @@ const TodoMain = () => {
   };
 
   useEffect(() => {
-    fetch(`https://hellwet-server.vercel.app/todo?email=${user?.email}`)
+    fetch(`http://localhost:5000/todo?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, [user?.email, todos]);
@@ -98,7 +98,7 @@ const TodoMain = () => {
         ></textarea>
         <button
           type="submit"
-          className="btn btn-block bg-[#2879E1] border-0 text-white"
+          className="btn btn-block bg-[#17A9EA] border-0 text-white"
         >
           Add Task
         </button>

@@ -4,6 +4,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import TodoMain from "../Pages/TodoMain/TodoMain";
+import Dashboard from "../Layout/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -20,10 +21,16 @@ export const router = createBrowserRouter([
   },
   {
     path: "/todos",
-    element: (
-      <PrivateRoute>
-        <TodoMain></TodoMain>
-      </PrivateRoute>
-    ),
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: "/todos",
+        element: (
+          <PrivateRoute>
+            <TodoMain></TodoMain>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);

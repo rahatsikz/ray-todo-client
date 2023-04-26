@@ -18,7 +18,7 @@ const TodoCard = ({ todo }) => {
     const title = form.title.value;
     const description = form.description.value;
     axios
-      .patch(`https://hellwet-server.vercel.app/todo/${_id}`, {
+      .patch(`http://localhost:5000/todo/${_id}`, {
         title,
         description,
         dueDate: startDate,
@@ -39,7 +39,7 @@ const TodoCard = ({ todo }) => {
 
     if (proceed) {
       // console.log(_id);
-      axios.delete(`https://hellwet-server.vercel.app/delete/${_id}`).then(
+      axios.delete(`http://localhost:5000/delete/${_id}`).then(
         (response) => {
           console.log(response);
           toast.success("Deleted successfully");
@@ -54,7 +54,7 @@ const TodoCard = ({ todo }) => {
   const handleDone = () => {
     const proceed = window.confirm("Press okay if you completed the task");
     if (proceed) {
-      axios.patch(`https://hellwet-server.vercel.app/done/${_id}`).then(
+      axios.patch(`http://localhost:5000/done/${_id}`).then(
         (response) => {
           console.log(response);
           toast.success("Congratulation for completing");
@@ -107,7 +107,7 @@ const TodoCard = ({ todo }) => {
           </label>
           <h3 className="text-lg font-semibold">
             Due date:{" "}
-            <span className="text-[#2879E1]">
+            <span className="text-sky-500">
               {moment(dueDate).format("MMMM Do YYYY, h:mm:ss a")}
             </span>
           </h3>
