@@ -21,7 +21,7 @@ const TodoMain = () => {
     const description = form.description.value;
     // console.log(title, startDate, description);
     axios
-      .post("http://localhost:5000/addtodo", {
+      .post("https://ray-todo-server.vercel.app/addtodo", {
         title,
         description,
         dueDate: startDate,
@@ -40,7 +40,7 @@ const TodoMain = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/todo?email=${user?.email}`)
+    fetch(`https://ray-todo-server.vercel.app/todo?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, [user?.email, todos]);
